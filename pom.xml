@@ -10,7 +10,7 @@
 
     <modules>
         <module>gateway-server</module>
-        <module>server-country</module>
+        <module>service-country</module>
     </modules>
 
 </project>

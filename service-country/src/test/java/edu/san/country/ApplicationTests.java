@@ -1,4 +1,4 @@
-package edu.san.servercountry;
+package edu.san.country;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
 # maven
 .mvn/
-**/src/target/
+**/src/target/**
 **/mvnw
 **/mvnw.cmd
 

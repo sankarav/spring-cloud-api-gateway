@@ -1,4 +1,4 @@
-package edu.san.servercountry.models;
+package edu.san.country.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

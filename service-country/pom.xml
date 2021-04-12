@@ -10,9 +10,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>edu.san</groupId>
-  <artifactId>server-country</artifactId>
+  <artifactId>service-country</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>server-country</name>
+  <name>service-country</name>
   <description>Demo project for Spring Boot</description>
   <properties>
     <java.version>15</java.version>

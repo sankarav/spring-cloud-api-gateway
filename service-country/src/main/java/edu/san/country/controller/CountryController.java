@@ -1,7 +1,7 @@
-package edu.san.servercountry.controller;
+package edu.san.country.controller;
 
-import edu.san.servercountry.models.Country;
-import edu.san.servercountry.repo.CountryRepository;
+import edu.san.country.models.Country;
+import edu.san.country.repo.CountryRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

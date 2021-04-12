@@ -1,8 +1,8 @@
-package edu.san.servercountry.repo;
+package edu.san.country.repo;
 
 import static java.util.Map.entry;
 
-import edu.san.servercountry.models.Country;
+import edu.san.country.models.Country;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
