@@ -1,0 +1,15 @@
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: country
+          uri: http://localhost:8081
+          predicates:
+            - Path=/country,/org/v1/country
+          filters:
+            - AddRequestHeader=X-gateway-screened, true
+            - AddResponseHeader=X-gateway-screened, true
+
+server:
+  port: 8080

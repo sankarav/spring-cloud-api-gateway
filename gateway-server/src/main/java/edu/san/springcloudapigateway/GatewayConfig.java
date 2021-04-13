@@ -17,18 +17,13 @@ public class GatewayConfig {
             .uri("http://httpbin.org:80"))
         .route("country", p -> p
             .path("/country", "/org/v1/country")
-            .filters(f -> f.addRequestHeader("gateway-screened", "true")
-                           .addResponseHeader("gateway-screened", "true")
+            .filters(f -> f.addRequestHeader("X-gateway-screened", "true")
+                           .addResponseHeader("X-gateway-screened", "true")
                            .setPath("/org/v1/country")
                            //.rewritePath("/?(?<segment>.*)", "/org/v1/country")
             )
             .uri("http://localhost:8081")
         )
-        /*.route(p -> p
-            .host("*.hystrix.com")
-            .filters(f ->
-                f.hystrix(config -> config.setName("mycmd")))
-            .uri("http://httpbin.org:80"))*/
         .build();
   }
 
