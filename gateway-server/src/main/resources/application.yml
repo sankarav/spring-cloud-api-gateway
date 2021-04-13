@@ -11,6 +11,17 @@ spring:
             - AddRequestHeader=X-gateway-screened, true
             - AddResponseHeader=X-gateway-screened, true
             - SetPath=/org/v1/country
+      metrics:
+        enabled: true
 
 server:
   port: 8080
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
