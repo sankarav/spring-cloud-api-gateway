@@ -10,6 +10,7 @@ spring:
           filters:
             - AddRequestHeader=X-gateway-screened, true
             - AddResponseHeader=X-gateway-screened, true
+            - SetPath=/org/v1/country
 
 server:
   port: 8080
