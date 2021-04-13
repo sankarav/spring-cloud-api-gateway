@@ -11,6 +11,7 @@
     <modules>
         <module>gateway-server</module>
         <module>service-country</module>
+        <module>service-registry</module>
     </modules>
 
 </project>

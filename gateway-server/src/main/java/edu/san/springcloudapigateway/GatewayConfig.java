@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
 
-  @Bean
+//  @Bean
   public RouteLocator myRoutes(RouteLocatorBuilder builder) {
     return builder.routes()
         .route(p -> p
