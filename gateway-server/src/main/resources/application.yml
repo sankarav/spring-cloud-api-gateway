@@ -32,3 +32,17 @@ management:
     web:
       exposure:
         include: "*"
+
+# For deep troubleshooting keep these loggers are DEBUG/TRACE Level
+# Refer: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#log-levels
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        http.server.reactive: INFO
+        cloud.gateway: INFO
+        web.reactive: INFO
+        boot.autoconfigure.web: INFO
+    reactor.netty: INFO
+    redisratelimiter: INFO
