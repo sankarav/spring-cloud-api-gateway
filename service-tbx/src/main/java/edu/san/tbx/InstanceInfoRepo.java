@@ -3,7 +3,9 @@ package edu.san.tbx;
 import static java.util.stream.Collectors.toList;
 
 import com.netflix.appinfo.DataCenterInfo;
+import com.netflix.appinfo.DataCenterInfo.Name;
 import com.netflix.appinfo.InstanceInfo;
+import com.netflix.appinfo.InstanceInfo.InstanceStatus;
 import com.netflix.appinfo.LeaseInfo;
 import com.netflix.appinfo.MyDataCenterInfo;
 import java.util.List;
@@ -39,26 +41,20 @@ public class InstanceInfoRepo {
   }
 
   private final static InstanceInfo createInstanceInfo(Application app) {
-    return InstanceInfo.Builder.newBuilder().setInstanceId(app.name + "instance1")
-        .setAppName(app.name).setAppNameForDeser(app.name + "fordeser").setAppGroupName(app.name + "group")
-        .setAppGroupNameForDeser(app.name + "group1fordeser").setHostName("app1host1")
-        .setStatus(InstanceInfo.InstanceStatus.UP).setOverriddenStatus(InstanceInfo.InstanceStatus.DOWN)
-        .setIPAddr("127.0.0.1").setSID("app1sid").setPort(app.port).setSecurePort(4443)
-        .enablePort(InstanceInfo.PortType.UNSECURE, true).setHomePageUrl("/", "http://localhost/")
-        .setHomePageUrlForDeser("http://localhost/").setStatusPageUrl("/status", "http://localhost/info")
-        .setStatusPageUrlForDeser("http://localhost/status")
-        .setHealthCheckUrls("/ping", "http://localhost/ping", null)
-        .setHealthCheckUrlsForDeser("http://localhost/ping", null).setVIPAddress("localhost:8080")
-        .setVIPAddressDeser("localhost:8080").setSecureVIPAddress("localhost:4443")
-        .setSecureVIPAddressDeser("localhost:4443")
-        .setDataCenterInfo(new MyDataCenterInfo(DataCenterInfo.Name.MyOwn))
-        .setLeaseInfo(LeaseInfo.Builder.newBuilder().setDurationInSecs(30).setRenewalIntervalInSecs(30)
-            .setEvictionTimestamp(System.currentTimeMillis() + 30000)
-            .setRenewalTimestamp(System.currentTimeMillis() - 1000)
-            .setRegistrationTimestamp(System.currentTimeMillis() - 2000).build())
-        .add("metadatakey1", "metadatavalue1").setASGName("asg1").setIsCoordinatingDiscoveryServer(false)
-        .setLastUpdatedTimestamp(System.currentTimeMillis()).setLastDirtyTimestamp(System.currentTimeMillis())
-        .setActionType(InstanceInfo.ActionType.ADDED).setNamespace("namespace1").build();
+    InstanceInfo instanceInfo = InstanceInfo.Builder.newBuilder()
+        .setInstanceId(String.format("sankars-mbp:%s:%d", app.name, app.port))
+        .setAppName(app.name)
+        .setHostName("sankars-mbp")
+        .setStatus(InstanceStatus.UP)
+        .setIPAddr("192.168.1.158")
+        .setPort(app.port)
+        .setSecurePort(4443)
+        .setDataCenterInfo(new MyDataCenterInfo(Name.MyOwn))
+        .build();
+
+    System.out.println(instanceInfo);
+
+    return instanceInfo;
   }
 
   @Data @Builder @AllArgsConstructor @NoArgsConstructor
