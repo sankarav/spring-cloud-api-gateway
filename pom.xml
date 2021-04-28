@@ -12,6 +12,7 @@
         <module>gateway-server</module>
         <module>service-country</module>
         <module>service-registry</module>
+        <module>service-tbx</module>
     </modules>
 
 </project>
