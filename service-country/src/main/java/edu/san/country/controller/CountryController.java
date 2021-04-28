@@ -9,14 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/org/v1/country")
 @AllArgsConstructor
 public class CountryController {
 
   private final CountryRepository repo;
 
-  @GetMapping
+  @GetMapping("/org/v1/country")
   public List<Country> getAll() {
     return repo.getAll();
+  }
+
+  @GetMapping("/old/hello")
+  public String trustedOldService() {
+    System.out.println("Executing Current Hello Service");
+    return "Hello from trusted Old Service";
+  }
+
+  @GetMapping("/new/hello")
+  public String unknownNewService() {
+    System.out.println("Executing TOBE Hello Service");
+    return "Hello from unknown but cool new Service";
   }
 }

@@ -13,6 +13,20 @@ spring:
             - AddRequestHeader=X-gateway-screened, true
             - AddResponseHeader=X-gateway-screened, true
             - SetPath=/org/v1/country
+        - id: hello_service_tobe
+          uri: http://localhost:8081
+          predicates:
+            - Path=/migration/hello
+            - Weight=hello_service, 1
+          filters:
+            - SetPath=/new/hello
+        - id: hello_service_current
+          uri: http://localhost:8081
+          predicates:
+            - Path=/migration/hello
+            - Weight=hello_service, 9
+          filters:
+            - SetPath=/old/hello
       metrics:
         enabled: true
 
